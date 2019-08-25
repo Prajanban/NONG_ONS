@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nong_ons/screens/register.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -7,6 +8,13 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   //Method
+
+  Widget mySizebox() {
+    return SizedBox(
+      width: 5.0,
+    );
+  }
+
   Widget signInButton() {
     return Expanded(
       child: RaisedButton(
@@ -24,7 +32,14 @@ class _HomeState extends State<Home> {
           'Sign Up',
           style: TextStyle(color: Colors.blue.shade400),
         ),
-        onPressed: () {},
+        onPressed: () {
+          print('You CLick SignUp');
+//Route แบบมี Aero back  การสืบทอด class ใน flutter
+//เรียกหน้า Registerมาแสดงเมื่อมีการกดปุ่ม SignUp
+          MaterialPageRoute materialPageRoute =
+              MaterialPageRoute(builder: (BuildContext context) => Register());
+              Navigator.of(context).push(materialPageRoute)
+        },
       ),
     );
   }
@@ -35,12 +50,6 @@ class _HomeState extends State<Home> {
       child: Row(
         children: <Widget>[signInButton(), mySizebox(), signUpButton()],
       ),
-    );
-  }
-
-  Widget mySizebox() {
-    return SizedBox(
-      width: 5.0,
     );
   }
 
@@ -74,7 +83,9 @@ class _HomeState extends State<Home> {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          gradient: RadialGradient(colors: [Colors.white,Colors.blue],)),
+            gradient: RadialGradient(
+          colors: [Colors.white, Colors.blue],
+        )),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[showLogo(), showAppName2(), showButton()],
