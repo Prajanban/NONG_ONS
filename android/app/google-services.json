@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "450131457287",
+    "firebase_url": "https://bansoft1-e4a0e.firebaseio.com",
+    "project_id": "bansoft1-e4a0e",
+    "storage_bucket": "bansoft1-e4a0e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:450131457287:android:2adc8abdc25f753c",
+        "android_client_info": {
+          "package_name": "net.bansoft.nong_ons"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "450131457287-2vjbl6ik50d7aqoro4pp30ss8ldlmgu1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBr7x_CXx9kV8na77GHbCWSIz_-__eyCXU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "450131457287-2vjbl6ik50d7aqoro4pp30ss8ldlmgu1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

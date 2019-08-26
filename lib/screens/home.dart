@@ -1,13 +1,35 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:nong_ons/screens/my_service.dart';
 import 'package:nong_ons/screens/register.dart';
-
+import 'package:nong_ons/screens/authen.dart';
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
+// Explicit
+ FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   //Method
+
+ @override
+ void initState() { 
+   super.initState();
+   checkStatus();
+ }
+
+  Future<void> checkStatus() async {
+    FirebaseUser firebaseUser = await firebaseAuth.currentUser();
+    if (firebaseUser != null) {
+      MaterialPageRoute materialPageRoute =
+          MaterialPageRoute(builder: (BuildContext context) => MyService());
+      Navigator.of(context).pushAndRemoveUntil(
+          materialPageRoute, (Route<dynamic> route) => false);
+    }
+  }
+
+
 
   Widget mySizebox() {
     return SizedBox(
@@ -20,7 +42,12 @@ class _HomeState extends State<Home> {
       child: RaisedButton(
         color: Colors.blue.shade400,
         child: Text('Sign In'),
-        onPressed: () {},
+        onPressed: () {
+
+           MaterialPageRoute materialPageRoute = MaterialPageRoute(builder: (BuildContext context)=> Authen());
+           Navigator.of(context).push(materialPageRoute);   
+
+        },
       ),
     );
   }
@@ -38,7 +65,7 @@ class _HomeState extends State<Home> {
 //เรียกหน้า Registerมาแสดงเมื่อมีการกดปุ่ม SignUp
           MaterialPageRoute materialPageRoute =
               MaterialPageRoute(builder: (BuildContext context) => Register());
-              Navigator.of(context).push(materialPageRoute)
+          Navigator.of(context).push(materialPageRoute);
         },
       ),
     );
@@ -88,7 +115,10 @@ class _HomeState extends State<Home> {
         )),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[showLogo(), showAppName2(), showButton()],
+          children: <Widget>[showLogo(),
+           showAppName2(),
+            showButton(),
+            ],
         ),
       ),
     );
